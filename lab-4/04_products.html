@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_Lab 4</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="p-4">
+    <script>
+        const products = [
+            {
+                productId: "Mobile",
+                productName: "Apple iPhone 16 Pro",
+                productPrice: 149900,
+                image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/iphone16pro-digitalmat-gallery-1-202409?wid=728&hei=666&fmt=p-jpg&qlt=95&.v=VWJuckJvbkZqeTMwRFJZSHhSVnN1OVRBZjJveUdyMFM0Z0dEYTB4Rzh1RDBVMUIwNFV6MXNoZGhsYWgvZGlmdEJnNER5bEtzeFpoMTlNVnpVcXBTR0NDaXNCSFl3ajdkc3ZBMkZreEM2YjNZV0hWeXdKNnBTeStXSklkb1ZqKzc"
+            },
+            {
+                productId: "Laptop",
+                productName: "Apple MacBook Pro",
+                productPrice: 239900,
+                image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/mbp-14-digitalmat-gallery-1-202410?wid=728&hei=666&fmt=png-alpha&.v=dmVFbEEyUXJ6Q0hEd1FjMFY3bE5FczNWK01TMHBhR0pZcm42OHQ2ODBjVVZYRUFzTnU5dXpMeUpXTHdIdkp5VDRob044alBIMUhjRGJwTW1yRE1oUG9oQ20zUjdkYWFQM0VDcG9EZ0J2dDMrNmVjbmk5c1V4VVk2VEt3TGcxekg"
+            },
+            {
+                productId: "Tablet",
+                productName: "Apple iPad Pro",
+                productPrice: 50000,
+                image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipadpro11-digitalmat-gallery-1-202404?wid=728&hei=666&fmt=jpeg&qlt=90&.v=UXVFY3VaaTg1Y0ZJTnlIMXY0b1VhZlRhSXFkOFhqdTgvUmc4VitXa2VzZFJ4eU1GZzRtNm5oQnN2QW1zUW9UeFl1V3dXQmdJWnFRbkcraVFaYnkzVFd5T3RkT0J1ZUFOQnovVVk3R3dLM0ltbzVCSGtEbW9RaTNsbTM2bmdVY3g"
+            },
+            {
+                productId: "Smartwatch",
+                productName: "Apple Watch Series 9",
+                productPrice: 69900,
+                image: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/watch-s10-digitalmat-gallery-2-202503_GEO_IN?wid=728&hei=666&fmt=png-alpha&.v=NTlOV21xd1cySWRTZzBsOTg1NjZTdHp0bzhwRTZxYVNNMnVRTXVpMUZESzMwbjF0VmJLRDZ6ekZOWDNnWnNRY1dwS3BmOE5lS0dKc1dRREcrSXh5V01lcC9qYU9xUXZmS1NmbGxtTVBCNU1nY3I2S1M5VUN5Zm5LNlJuV1JGVmY"
+            },
+        ];
+
+        document.write("<table class='table table-bordered table-striped'>");
+        document.write("<thead class='table-success'>");
+        document.write("<tr>");
+        document.write("<th>Product ID</th>");
+        document.write("<th>Product Name</th>");
+        document.write("<th>Product Price</th>");
+        document.write("<th>Image</th>");
+        document.write("</tr>");
+        document.write("</thead>");
+
+        document.write("<tbody>");
+        for (let i = 0; i < products.length; i++) {
+            document.write("<tr>");
+            document.write("<td>" + products[i].productId + "</td>");
+            document.write("<td>" + products[i].productName + "</td>");
+            document.write("<td>₹" + products[i].productPrice + "</td>");
+            document.write("<td><img src='" + products[i].image + "' alt='" + products[i].productName + "' width='100'></td>");
+            document.write("</tr>");
+        }
+        document.write("</tbody>");
+        document.write("</table>");
+    </script>
+</body>
+
+</html>

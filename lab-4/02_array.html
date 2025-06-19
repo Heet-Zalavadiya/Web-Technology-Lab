@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Operations</title>
+</head>
+
+<body>
+    <script>
+        arr = [1, 3, 2, 5, 4, 7, 6, 10, 8, 9];
+        arr.push(11);
+        console.log(arr);
+        arr.pop(11);
+        console.log(arr);
+        nlen = arr.unshift(0);
+        console.log(nlen);
+        console.log(arr);
+        n = arr.shift();
+        console.log(n);
+        console.log(arr);
+        console.log(arr.sort((a,b) => a - b));
+        // n1 = arr.splice(2,5);
+        // console.log(n1);
+        // console.log(arr);
+        n2 = arr.slice(2,5);
+        console.log(n2);
+        console.log(arr);
+
+    </script>
+</body>
+
+</html>

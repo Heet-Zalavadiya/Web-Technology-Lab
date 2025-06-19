@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_Lab 4</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="p-4">
+    <script>
+        Faculty = [
+            {
+                name: "Dr. Gopi Sanghani",
+                occupation: "Dean - Faculty of Computer Science",
+                experience: 24
+            },
+            {
+                name: "Dr. Nilesh Gambhava",
+                occupation: "Professor - Computer Science",
+                experience: 22
+            },
+            {
+                name: "Dr. Pradyumansinh Jadeja",
+                occupation: "Professor - Computer Science",
+                experience: 19
+            },
+            {
+                name: "Prof. Firoz Sherasiya",
+                occupation: "Assistant Professor - Computer Science",
+                experience: 20
+            },
+        ];
+
+        document.write("<table class='table table-bordered table-striped'>");
+        document.write("<thead class='table-dark'>");
+        document.write("<tr>");
+        document.write("<th>name</th>");
+        document.write("<th>occupation</th>");
+        document.write("<th>experience</th>");
+        document.write("</tr>");
+        document.write("</thead>");
+
+        document.write("<tbody>");
+        for (let i = 0; i < Faculty.length; i++) {
+            document.write("<tr>");
+            document.write("<td>" + Faculty[i].name + "</td>");
+            document.write("<td>" + Faculty[i].occupation + "</td>");
+            document.write("<td>" + Faculty[i].experience + "</td>");
+            document.write("</tr>");
+        }
+        document.write("</tbody>");
+        document.write("</table>");
+
+    </script>
+</body>
+
+</html>
