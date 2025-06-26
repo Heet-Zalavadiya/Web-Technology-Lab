@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formValidation</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Form Validation </h1>
+    <form id="myForm" novalidate style="display: flex; flex-direction: column; max-width: 350px;">
+
+        <label for="username" style="display: block;">Username:</label>
+        <input type="text" id="username" name="username" onkeypress="checkUser()" required style="width: 100%;">
+        <span class="error" id="usernameError"></span>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" style="width: 100%;">
+        <span class="error" id="passwordError"></span>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" style="width: 100%;">
+        <span class="error" id="confirmPasswordError"></span>
+
+        <label for="enrollment">Enrollment:</label>
+        <input type="text" id="enrollment" name="enrollment" onclick="checkEnroll()" style="width: 100%;">
+        <span class="error" id="enrollmentError"></span>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" onclick="checkMail()" required style="width: 100%;">
+        <span class="error" id="emailError"></span>
+        <br>
+        <input type="submit" value="Submit" onclick="return validateForm()" style="width: 100px;">
+    </form>
+    <script>
+        function checkUser() {
+            var a = document.getElementById("username").value;
+            var pattern = "^.{8,}$";
+            var regex = new RegExp(pattern);
+            if (regex.test(a)) {
+                document.getElementById("usernameError").innerHTML = "";
+                return true
+            } else {
+                document.getElementById("usernameError").innerHTML = "Username must be at least 8 characters long";
+                return false;
+            }
+        }
+
+        function checkEnroll() {
+            var a = document.getElementById("enrollment ").value;
+            var pattern = "^\d{11}$";
+            var regex = new RegExp(pattern);
+            if (regex.test(a)) {
+                document.getElementById("enrollmentError").innerHTML = "";
+                return true
+            } else {
+                document.getElementById("enrollmentError").innerHTML = "Enrollment must be 11 digits";
+                return false;
+            }
+        }
+        function checkMail() {
+            var a = document.getElementById("email").value;
+            var pattern = "^[\\w-_\.]*[\\w-_\.]\@[\\w]\.+[\\w]+[\\w]+";
+            var regex = new RegExp(pattern);
+            if (regex.test(a)) {
+                document.getElementById("emailError").innerHTML = "";
+                return true
+            } else {
+                document.getElementById("emailError").innerHTML = "Invalid email format";
+                return false;
+            }
+        }0
+        function validateForm() {
+            let isValid = true;
+
+            if (!checkUser()) isValid = false;
+            if (!checkMail()) isValid = false;
+        }
+
+
+    </script>
+</body>
+
+</html>
