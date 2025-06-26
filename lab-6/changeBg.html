@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change background</title>
+</head>
+<body>
+    <p id="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quidem, dolor reprehenderit maxime ducimus placeat alias assumenda ad totam nostrum eligendi minima aut laudantium tenetur enim deleniti nobis voluptate ea.</p>
+    <button id="btn">Change Color</button>
+    <script>
+        let btn = document.getElementById("btn");
+        let txt = document.getElementById("txt");
+        document.getElementById("btn").addEventListener("click", () => {
+            document.body.style.backgroundColor = "red";
+            txt.style.color = "white";
+        })
+    </script>
+</body>
+</html>

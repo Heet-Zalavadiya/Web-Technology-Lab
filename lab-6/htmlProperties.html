@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML PROPERTIES</title>
+</head>
+
+<body>
+    <span id="txt">Click Me</span>
+    <button id="btn">Click</button>
+    <br>
+    <br>
+    <img src="https://du-website.s3.ap-south-1.amazonaws.com/U01/Faculty-Photo/5---29-04-2023-11-00-29.jpg"
+        alt="Gopi Madam" id="myImg" height="100px">
+    <script>
+        let text = document.getElementById("txt");
+        text.addEventListener("click", () => {
+            text.innerHTML = "This is JavaScript Event Handling";
+        })
+        let myImg = document.getElementById("myImg");
+        myImg.addEventListener("click", () => {
+            myImg.src = "https://du-website.s3.ap-south-1.amazonaws.com/U01/Faculty-Photo/3---28-04-2023-02-02-42.jpg"
+        })
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click", () => {
+            text.style.color = "red";
+        })
+        btn.addEventListener("mousemove", () => {
+            text.style.fontSize = 25+"px";
+        })
+        btn.addEventListener("dblclick", () => {
+            text.style.textDecoration = "underline" ;
+        })
+
+    </script>
+</body>
+
+</html>

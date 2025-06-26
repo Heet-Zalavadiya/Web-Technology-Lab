@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Event</title>
+</head>
+
+<body>
+    <button id="btn">Click</button>
+    <button id="btn1">Double Click</button>
+    <button id="btn2">Mouse Down</button>
+    <button id="btn3">Mouse Move</button>
+    <button id="btn4">Mouse Over</button>
+    <button id="btn5">Mouse Up</button>
+    <button id="btn6">Mouse Out</button>
+    <script>
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click", () => {
+            console.log("Click Event Fired");
+        })
+        btn1.addEventListener("dblclick", () => {
+            console.log("Double Click Event Fired");
+        })
+        btn2.addEventListener("mousedown", () => {
+            console.log("Mouse Down event is Fired");
+        })
+        btn3.addEventListener("mousemove", () => {
+            console.log("Mouse Move event is Fired");
+        })
+        btn4.addEventListener("mouseover", () => {
+            console.log("Mouse over event is Fired");
+        })
+        btn5.addEventListener("mouseup", () => {
+            console.log("Mouse up event is Fired");
+        })
+        btn6.addEventListener("mouseout", () => {
+            console.log("Mouse Out event is Fired");
+        })
+
+    </script>
+</body>
+
+</html>
