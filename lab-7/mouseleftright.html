@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Left Right</title>
+</head>
+
+<body>
+    <h1>Click Anywere in the Window</h1>
+    <p id="message"></p>
+    <script>
+        document.addEventListener('mousedown', function (event) {
+            const messageElement = document.getElementById('message');
+
+            if (event.button == 0) {
+                messageElement.innerHTML = 'Left Clicked';
+            } else if (event.button == 2) {
+                messageElement.innerHTML = 'Right Clicked';
+            }
+        });
+    </script>
+</body>
+
+</html>
