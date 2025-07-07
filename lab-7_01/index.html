@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            /* font-family: 'Consolas'; */
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="userName">UserName:</label>
+    <input type="text" id="userName">
+    <button onclick="addRow()">ADD</button>
+    <table border="1" cellpadding="10" style="margin-top: 10px;">
+        <thead>
+            <th>Id</th>
+            <th>name</th>
+            <th>action</th>
+        </thead>
+        <tbody id="tbody">
+            <!-- Dynamically addition -->
+        </tbody>
+    </table>
+    <script>
+        let arr = [];
+        function display() {
+            let temp = "";
+            for (let i = 0; i < arr.length; i++) {
+                temp += `<tr>
+                            <td>${i + 1}</td>
+                            <td>${arr[i]}</td>
+                            <td><button onclick = "deleteRow(${i})">DELETE</button>
+                                <button onclick = "editRow(${i})">EDIT</button></td>
+                        </tr>`;
+            }
+            document.getElementById("tbody").innerHTML = temp;
+        }
+
+        function addRow() {
+            let uname = document.getElementById("userName").value;
+            if (uname === '') {
+                alert("enter username :");
+            }
+            else {
+                arr.push(uname);
+                document.getElementById("userName").value = '';
+                display();
+            }
+        }
+
+        function editRow(index) {
+            let newName = prompt("Enter UserName", arr[index]);
+            if (newName !== null  && newName.trim() !== '') {
+                arr[index] = newName;
+                display();
+            }
+        }
+
+
+
+        function deleteRow(index) {
+            arr.splice(index, 1);
+            display();
+        }
+    </script>
+</body>
+
+</html>
