@@ -1,0 +1,3 @@
+Hello World
+This demo text file
+for synchrous and asynchrous fs function 
