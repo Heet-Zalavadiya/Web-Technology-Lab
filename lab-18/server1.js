@@ -11,8 +11,8 @@ const app = http.createServer((req, res) => {
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'text/html')
                 res.end(data);
-            }
-        })
+            } 
+        }) 
     }
     else if (req.url === '/about') {
         fs.readFile('./about.html', (err, data) => {
