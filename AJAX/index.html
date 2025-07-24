@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API using AJAX</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: white;
+            color: white;
+        }
+        table{
+            background-color: black;
+            border: 2px solid green;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table border ="1" cellspacing="0">
+        <thead>
+            <td>Student ID</td>
+            <td>Student Name</td>
+            <td>Student Image</td>
+        </thead>
+        <tbody id="tblbody">
+
+        </tbody>
+    </table>
+    <script>
+        temp = ''
+        const xhttp = new XMLHttpRequest()
+        xhttp.open("GET", "https://6881bc9466a7eb81224bb66b.mockapi.io/student", true)
+        xhttp.send()
+        xhttp.onload = function () {
+            if (xhttp.status == 200) {
+                data = JSON.parse(this.responseText)
+                data.map((stu) => {
+                    temp += `<tr> 
+                                <td>${stu.id}</td>
+                                <td>${stu.name}</td>
+                                <td><img src = '${stu.avatar}' height = '100px'/></td>
+                            </tr>`
+                })
+                tblbody.innerHTML = temp;
+            } else {
+                alert("data not found")
+            }
+        }
+    </script>
+
+</body>
+
+</html>
