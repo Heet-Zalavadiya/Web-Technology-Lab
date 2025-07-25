@@ -9,16 +9,142 @@
 
 <body>
     <script>
-        if (true) {
-            let a = 10;
-            var b = 20;
-            while (true) {
-                document.write(a);
-                document.write(b);
+        // if (true) {
+        //     let a = 10;
+        //     var b = 20;
+        //     while (true) {
+        //         document.write(a);
+        //         document.write(b);
+        //     }
+        // }
+        // document.write(a);
+        // document.write(b);
+
+        // for let 
+        let a = 30;
+        function test() {
+            let a = 20;
+            if (true) {
+                let a = 10;
+                console.log(a);// 10
+            }
+            console.log(a);//20
+        }
+        test();
+        console.log(a);//30
+
+        // for const
+        const b = 30;
+        function testConst() {
+            const b = 20;
+            if (true) {
+                const b = 10;
+                console.log(b); //10
+            }
+            console.log(b); //20
+        }
+        testConst();
+        console.log(b);//30
+
+        // for var
+        var c = 30;
+        function testVar() {
+            var c = 20;
+            if (true) {
+                var c = 10;
+                console.log(c);
+            }
+            console.log(c);
+        }
+        testVar();
+        console.log(c);
+
+
+        // mix
+        var x = 100;
+        let y = 200;
+        const z = 300;
+
+        function mixTest() {
+            var x = 10;
+            let y = 20;
+            const z = 30;
+
+            if (true) {
+                var x = 40; // redeclares and overwrites x in function scope
+                let y = 50; // block scoped y
+                const z = 60; // block scoped z
+                console.log("Inside if block:");
+                console.log("x =", x); // 40
+                console.log("y =", y); // 50
+                console.log("z =", z); // 60
+            }
+
+            console.log("Inside function after if block:");
+            console.log("x =", x); // 40 (var is function scoped, overwritten)
+            console.log("y =", y); // 20 (let is block scoped, outer y)
+            console.log("z =", z); // 30 (const is block scoped, outer z)
+        }
+
+        mixTest();
+
+        console.log("Global scope:");
+        console.log("x =", x); // 100 (global var)
+        console.log("y =", y); // 200 (global let)
+        console.log("z =", z); // 300 (global const)
+
+        // complex example
+
+        function complexExample() {
+            var a = 1;
+            let b = 2;
+            const c = 3;
+
+            console.log("Initial values:");
+            console.log("a =", a); // 1
+            console.log("b =", b); // 2
+            console.log("c =", c); // 3
+
+            if (true) {
+                var a = 10; // redeclares and overwrites function scoped 'a'
+                let b = 20; // block scoped 'b'
+                const c = 30; // block scoped 'c'
+
+                console.log("Inside if block:");
+                console.log("a =", a); // 10
+                console.log("b =", b); // 20
+                console.log("c =", c); // 30
+
+                for (let i = 0; i < 2; i++) {
+                    var a = 100; // overwrites function scoped 'a' again
+                    let b = 200 + i; // new block scoped 'b' for each iteration
+                    const c = 300 + i; // new block scoped 'c' for each iteration
+
+                    console.log(`Inside for loop iteration ${i}:`);
+                    console.log("a =", a); // 100
+                    console.log("b =", b); // 200 + i
+                    console.log("c =", c); // 300 + i
+                }
+
+                console.log("After for loop inside if block:");
+                console.log("a =", a); // 100 (var overwritten in loop)
+                console.log("b =", b); // 20 (block scoped from if)
+                console.log("c =", c); // 30 (block scoped from if)
+            }
+
+            console.log("After if block:");
+            console.log("a =", a); // 100 (var overwritten in if block)
+            console.log("b =", b); // 2 (outer let unchanged)
+            console.log("c =", c); // 3 (outer const unchanged)
+
+            try {
+                c = 50; // Error: Assignment to constant variable
+            } catch (e) {
+                console.log("Error trying to reassign const c:", e.message);
             }
         }
-        document.write(a);
-        document.write(b);
+
+        complexExample();
     </script>
 </body>
 
