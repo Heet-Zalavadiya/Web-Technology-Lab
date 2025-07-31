@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Tabel Object</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+
+</head>
+
+<body>
+    <label for="pname">Product Name:</label>
+    <input type="text" id="pname">
+    <label for="category">Category:</label>
+    <input type="text" id="category">
+    <label for="price">Price:</label>
+    <input type="text" id="price">
+    <label for="imageURL">Image URL:</label>
+    <input type="text" id="imageURL">
+    <br>
+    <button onclick="addRow()">ADD</button>
+    <div id="print">
+
+    </div>
+    <script>
+        let arr = [];
+
+        function display() {
+            let temp = "";
+            for (let i = 0; i < arr.length; i++) {
+                temp += `<div class="card" style="width: 18rem;">
+                            <img src="${arr[i].imgURL}" class="card-img-top">
+                            <div class="card-body">
+                                <p class="card-text">product : ${arr[i].pname}</p>
+                                <p class="card-text">price : $ ${arr[i].price}</p>
+                                <p class="card-text">category : ${arr[i].category}</p>
+                                <button class="deleteBtn" data-index="${i}">DELETE</button>
+                                <button class="editBtn" data-index="${i}">EDIT</button>
+                            </div>
+                        </div>`;
+            }
+            $("#print").html(temp);
+        }
+
+        function addRow() {
+            let pname = $("#pname").val();
+            let category = $("#category").val();
+            let price = $("#price").val();
+            let imgURL = $("#imageURL").val();
+            let prod = {
+                pname: pname,
+                category: category,
+                price: price,
+                imgURL: imgURL
+            };
+            if (pname === '' || category === '' || price === '' || imgURL === '') {
+                alert("Invalid Input ALL field must be filled");
+            }
+            else {
+                arr.push(prod);
+                $("#pname").val('');
+                $("#category").val('');
+                $("#price").val('');
+                $("#imageURL").val('');
+                display();
+            }
+        }
+
+        function editRow(index) {
+            let product = prompt("Enter ProductName", arr[index].pname);
+            let category = prompt("Enter Category", arr[index].category);
+            let price = prompt("Enter Price", arr[index].price);
+            let image = prompt("Enter image URL", arr[index].imgURL);
+            if (product !== null && product.trim() !== ''
+                && category !== null && category.trim() !== ''
+                && price !== null && price.trim() !== ''
+                && image !== null && image.trim() !== '') {
+                arr[index].pname = product;
+                arr[index].category = category;
+                arr[index].price = price;
+                arr[index].imgURL = image;
+                display();
+            }
+        }
+
+        function deleteRow(index) {
+            arr.splice(index, 1);
+            display();
+        }
+
+        $(document).ready(function () {
+            $("#addBtn").click(function () {
+                addRow();
+            });
+
+            $("#print").on("click", ".deleteBtn", function () {
+                let index = $(this).data("index");
+                deleteRow(index);
+            });
+
+            $("#print").on("click", ".editBtn", function () {
+                let index = $(this).data("index");
+                editRow(index);
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <button>Click me</button>
+    <div id="myDiv" style="height:  200px; border: 2px solid black;">
+        <div style="height: 50px; border: 2px solid orangered;"></div>
+        <div style="height: 50px; border: 2px solid blue;"></div>
+        <div style="height: 50px; border: 2px solid palegoldenrod; "></div>
+    </div>
+</body>
+<script>
+    $("button").click(function () {
+        $("#myDiv").children().css("background-color", "red");
+    })    
+</script>
+
+</html>
